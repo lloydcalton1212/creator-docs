@@ -29,6 +29,7 @@ At a high level, Brainrot Racing contains the following:
 - Power-up system with randomized pickups that affect gameplay.
 - Multiplayer lobby and matchmaking system.
 - Leaderboards and time trial modes.
+- Comprehensive admin panel with moderation and control features.
 
 All systems are optimized for cross-platform play, supporting mobile, console, and desktop devices. The code is structured for easy customization, allowing developers to create their own unique racing experiences.
 

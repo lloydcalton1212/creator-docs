@@ -3,6 +3,7 @@ title: Track Design
 comments:
 description: Learn how to build custom racing tracks using modular components and design principles.
 prev: /resources/brainrot-racing/reward-system
+next: /resources/brainrot-racing/admin-panel
 ---
 
 Building engaging race tracks is essential for creating a compelling racing experience. This guide covers track design principles, modular construction techniques, and optimization strategies for Brainrot Racing.
