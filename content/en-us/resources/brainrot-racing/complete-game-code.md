@@ -831,16 +831,16 @@ createCommandButton("Toggle Super Speed", "⚡", function()
 	})
 end)
 
--- Toggle panel with semicolon key
+-- Toggle panel with F2 key
 UserInputService.InputBegan:Connect(function(input, processed)
 	if processed then return end
 
-	if input.KeyCode == Enum.KeyCode.Semicolon then
+	if input.KeyCode == Enum.KeyCode.F2 then
 		mainFrame.Visible = not mainFrame.Visible
 	end
 end)
 
-print("[AdminPanel] Press ; (semicolon) to open admin panel")
+print("[AdminPanel] Press F2 to open admin panel")
 ```
 
 ### BaseUI (ScreenGui)
@@ -950,7 +950,7 @@ end)
 2. **Create a simple race track** in Workspace/Tracks using parts
 3. **Add spawn locations** in Workspace/SpawnLocations
 4. **Test the game** - press **F5** to play
-5. **Admin panel** - press **;** (semicolon) to open if you're an admin
+5. **Admin panel** - press **F2** to open if you're an admin
 
 Your UserIds (7392445200, 10443874977) are pre-configured as admins!
 
