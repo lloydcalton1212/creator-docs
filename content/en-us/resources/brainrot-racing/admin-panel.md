@@ -3,6 +3,7 @@ title: Admin Panel
 comments:
 description: Implement a comprehensive admin panel with moderation and gameplay control commands for Brainrot Racing.
 prev: /resources/brainrot-racing/track-design
+next: /resources/brainrot-racing/complete-game-code
 ---
 
 The admin panel provides game administrators and moderators with powerful tools to manage players, control game state, and enhance the experience. This guide covers implementing a secure, user-friendly admin interface with essential commands.

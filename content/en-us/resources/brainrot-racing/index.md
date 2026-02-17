@@ -101,5 +101,7 @@ This documentation covers:
 - **Character System** — Learn how to create and balance new characters.
 - **Reward System** — Configure the economy and progression mechanics.
 - **Track Design** — Build custom racing tracks using modular components.
+- **Admin Panel** — Implement moderation tools and game controls.
+- **Complete Game Code** — Copy-paste ready implementation of the entire game.
 
 Each section includes code examples, best practices, and tips for customization to help you create your own unique racing game.
