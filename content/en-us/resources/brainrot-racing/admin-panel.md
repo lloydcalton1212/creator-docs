@@ -7,6 +7,71 @@ prev: /resources/brainrot-racing/track-design
 
 The admin panel provides game administrators and moderators with powerful tools to manage players, control game state, and enhance the experience. This guide covers implementing a secure, user-friendly admin interface with essential commands.
 
+## Installation in Roblox Studio
+
+To install the admin panel system in your game:
+
+### Option 1: Manual Setup
+
+1. **Create Folder Structure** in your place:
+
+   ```
+   ServerScriptService/
+   ├── AdminService (ModuleScript)
+   ├── AdminCommands/ (Folder)
+   │   ├── GlobalMessageCommand (ModuleScript)
+   │   ├── BanCommand (ModuleScript)
+   │   ├── KickCommand (ModuleScript)
+   │   ├── SetStatsCommand (ModuleScript)
+   │   ├── MusicCommand (ModuleScript)
+   │   ├── SpawnBrainrotCommand (ModuleScript)
+   │   └── StealBrainrotCommand (ModuleScript)
+
+   ReplicatedStorage/
+   ├── Events/ (Folder)
+   │   └── ShowGlobalMessage (RemoteEvent)
+
+   StarterGui/
+   └── AdminPanelUI (ScreenGui with LocalScript)
+   ```
+
+2. **Copy the code** from each section of this documentation into the corresponding scripts.
+
+3. **Configure Admin UserIds** - The admin panel is pre-configured for UserIds:
+   - `7392445200`
+   - `10443874977`
+
+   These users will have full Owner permissions automatically.
+
+### Option 2: Download Pre-Made Model
+
+Download the complete admin panel from the Roblox library:
+
+1. Open Roblox Studio and your place file.
+2. Navigate to the **Toolbox** (View > Toolbox).
+3. Search for "Brainrot Racing Admin Panel" in Models.
+4. Click to insert it into your game.
+5. The model will automatically place scripts in the correct locations.
+
+### Option 3: Import from File
+
+If you have the admin panel as a `.rbxm` file:
+
+1. In Roblox Studio, right-click on `Workspace`.
+2. Select **Insert from File**.
+3. Choose the `AdminPanel.rbxm` file.
+4. Move the scripts to their correct locations as shown in the folder structure above.
+
+### Verification
+
+After installation, verify the setup:
+
+1. **Test in Studio**: Click Play and press **F9** to open the Developer Console.
+2. Check for any error messages related to admin scripts.
+3. **Test Admin Access**: Join with one of the configured admin UserIds.
+4. Press **;** (semicolon) or the configured hotkey to open the admin panel.
+5. Test a command like Global Message to verify functionality.
+
 ## Admin Panel Overview
 
 The admin panel includes:
@@ -31,7 +96,7 @@ local AdminRoles = {
     Owner = {
         Level = 100,
         Permissions = {"all"},
-        UserIds = {123456789},  -- Replace with actual owner UserIds
+        UserIds = {7392445200, 10443874977},  -- Authorized admin UserIds
     },
 
     HeadAdmin = {
@@ -197,17 +262,17 @@ function GlobalMessage.Execute(adminPlayer, message, duration)
 
     -- Broadcast to all players
     for _, player in ipairs(Players:GetPlayers()) do
-        GlobalMessage.ShowMessageToPlayer(player, message, duration, adminPlayer.Name)
+        GlobalMessage.ShowMessageToPlayer(player, message, duration, adminPlayer.DisplayName)
     end
 end
 
-function GlobalMessage.ShowMessageToPlayer(player, message, duration, senderName)
+function GlobalMessage.ShowMessageToPlayer(player, message, duration, senderDisplayName)
     -- Fire client event to show message
     local remoteEvent = game.ReplicatedStorage.Events.ShowGlobalMessage
     remoteEvent:FireClient(player, {
         Message = message,
         Duration = duration,
-        Sender = senderName,
+        Sender = senderDisplayName,
         Timestamp = os.date("%H:%M:%S"),
     })
 end
